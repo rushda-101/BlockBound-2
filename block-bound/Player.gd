@@ -36,8 +36,13 @@ func _physics_process(delta):
 	if global_position.y > 1200:
 		get_node("../GameManager").lose_life()
 		respawn()
-
+		
+	# Move the player
 	move_and_slide()
+	
+	# Prevent moving off the left edge
+	if global_position.x < 0:
+		global_position.x = 0
 
 func respawn():
 	global_position = start_position

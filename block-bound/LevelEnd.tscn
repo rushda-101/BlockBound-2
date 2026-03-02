@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://nfmd2mmwxwrd"]
+
+[ext_resource type="Script" uid="uid://cxq6etpu5yci4" path="res://level_end.gd" id="1_hc4vc"]
+[ext_resource type="Texture2D" uid="uid://bhutpvy10jiyd" path="res://assets/Finish Flag.png" id="2_bk5x7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yatxi"]
+size = Vector2(13.449999, 17.849998)
+
+[node name="LevelEnd" type="Area2D" unique_id=965453293]
+position = Vector2(121, 32)
+script = ExtResource("1_hc4vc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1174839244]
+texture = ExtResource("2_bk5x7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=92147330]
+position = Vector2(-5.5, -1.4999866)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_yatxi")

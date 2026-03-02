@@ -1,17 +1,16 @@
-[gd_scene format=3 uid="uid://dm14lokn8f3sp"]
+[gd_scene format=3 uid="uid://bana1qplya15m"]
 
-[ext_resource type="PackedScene" uid="uid://ddegrtkpmjc62" path="res://Player.tscn" id="1_3hls8"]
-[ext_resource type="Texture2D" uid="uid://bgy7jyx6t8vww" path="res://assets/Level 1 Background.png" id="1_hbghi"]
-[ext_resource type="PackedScene" uid="uid://bbikmjfqsdjpf" path="res://assets/coin.tscn" id="3_hn12h"]
-[ext_resource type="Script" uid="uid://bm13fhkksuo3j" path="res://game_manager.gd" id="4_ihfcg"]
-[ext_resource type="PackedScene" uid="uid://nfmd2mmwxwrd" path="res://LevelEnd.tscn" id="5_rka8t"]
+[ext_resource type="PackedScene" uid="uid://ddegrtkpmjc62" path="res://Player.tscn" id="1_1y8me"]
+[ext_resource type="Texture2D" uid="uid://c8t3vnqi08gkj" path="res://assets/Level 2 Background.png" id="2_1y8me"]
+[ext_resource type="PackedScene" uid="uid://bbikmjfqsdjpf" path="res://assets/coin.tscn" id="3_0s5r2"]
+[ext_resource type="Script" uid="uid://bm13fhkksuo3j" path="res://game_manager.gd" id="4_7j8ne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(400, 400)
 
 [node name="Level1" type="Node2D" unique_id=275942598]
 
-[node name="Player" parent="." unique_id=532816857 instance=ExtResource("1_3hls8")]
+[node name="Player" parent="." unique_id=532816857 instance=ExtResource("1_1y8me")]
 position = Vector2(100, 60)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=413811784]
@@ -24,7 +23,7 @@ position = Vector2(-3, 1)
 [node name="SkySprite" type="Sprite2D" parent="BackgroundParallax/SkyLayer" unique_id=770294332]
 z_index = -10
 texture_repeat = 2
-texture = ExtResource("1_hbghi")
+texture = ExtResource("2_1y8me")
 region_enabled = true
 region_rect = Rect2(4000, 4000, 8000, 1296)
 
@@ -42,7 +41,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=807912476]
 
-[node name="Coin" parent="Platform2" unique_id=2079517059 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin" parent="Platform2" unique_id=2079517059 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(224.99998, 94.99999)
 scale = Vector2(0.35, 0.35)
 
@@ -59,7 +58,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=2096241365]
 
-[node name="Coin2" parent="Platform3" unique_id=1948238989 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin2" parent="Platform3" unique_id=1948238989 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(778, 96.99999)
 scale = Vector2(0.35, 0.35)
 
@@ -76,7 +75,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform5" type="StaticBody2D" parent="." unique_id=1030122213]
 
-[node name="Coin3" parent="Platform5" unique_id=79306050 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin3" parent="Platform5" unique_id=79306050 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(1333, 98)
 scale = Vector2(0.35, 0.35)
 
@@ -93,7 +92,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform6" type="StaticBody2D" parent="." unique_id=1047698668]
 
-[node name="Coin4" parent="Platform6" unique_id=2046358134 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin4" parent="Platform6" unique_id=2046358134 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(1882, 97)
 scale = Vector2(0.35, 0.35)
 
@@ -110,7 +109,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform7" type="StaticBody2D" parent="." unique_id=277974050]
 
-[node name="Coin5" parent="Platform7" unique_id=137531513 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin5" parent="Platform7" unique_id=137531513 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(2450, 97)
 scale = Vector2(0.35, 0.35)
 
@@ -127,7 +126,7 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform8" type="StaticBody2D" parent="." unique_id=1336266124]
 
-[node name="Coin6" parent="Platform8" unique_id=883753971 groups=["Coins"] instance=ExtResource("3_hn12h")]
+[node name="Coin6" parent="Platform8" unique_id=883753971 groups=["Coins"] instance=ExtResource("3_0s5r2")]
 position = Vector2(2980, 98)
 scale = Vector2(0.35, 0.35)
 
@@ -147,7 +146,7 @@ offset_bottom = 560.0
 color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="GameManager" type="Node2D" parent="." unique_id=1605885942]
-script = ExtResource("4_ihfcg")
+script = ExtResource("4_7j8ne")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1378741352]
 
@@ -184,7 +183,3 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 40
 text = "GAME OVER
 Press R to Restart"
-
-[node name="LevelEnd" parent="." unique_id=965453293 instance=ExtResource("5_rka8t")]
-position = Vector2(3820.9995, 18.000004)
-scale = Vector2(0.85, 0.85)
