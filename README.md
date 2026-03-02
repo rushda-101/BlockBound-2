@@ -404,11 +404,11 @@ Code will follow separation of concerns principles to improve maintainability.
 ### 7.2 Boundary and Edge Case Testing
 | Test ID | Scenario | Action | Expected Outcome | Pass/Fail | Further Actions |
 |---------|----------|--------|------------------|-----------|-----------------|
-|T1|Edge of Platform|Stand on platform edge|Player does not slide off unexpectedly| | |
+|T1|Edge of Platform|Stand on platform edge|Player does not slide off unexpectedly|Pass <img width="254" height="457" alt="image" src="https://github.com/user-attachments/assets/883e5f26-7357-4750-931b-8bb43bff5c16" />|n/a|
 |T2|Rapid JumpPress|Spam jump key|No unintended double jump|Pass|n/a|
-|T3|Jump at Platform Edge|Jump partially off edge|Player behaves consistently| | |
-|T4|Map Boundary Bottom|Fall below map|Life deducted & respawn| | |
-|T5|Coin at Platform Edge|Collect near edge|Coin registers correctly| | |
+|T3|Jump at Platform Edge|Jump partially off edge|Player behaves consistently|Pass <img width="630" height="698" alt="Screenshot 2026-03-01 235349" src="https://github.com/user-attachments/assets/bd7906c2-e3df-4cd9-8d42-c45742cb6495" />|n/a|
+|T4|Map Boundary Bottom|Fall below map|Life deducted & respawn|Pass <img width="999" height="896" alt="Screenshot 2026-03-02 183622" src="https://github.com/user-attachments/assets/cc1505d7-7c9b-4743-8596-d65797781035" />|n/a|
+|T5|Coin at Platform Edge|Collect near edge|Coin registers correctly|Pass <img width="1757" height="994" alt="Screenshot 2026-03-02 165815" src="https://github.com/user-attachments/assets/b0850218-9299-471e-aad0-cfac0d240d81" />|n/a|
 |T6|Hazard Edge Contact|Slight contact with spike|Collision still triggers| | |
 |T7|Simultaneous Coin + Hazard|Touch both at same time|Hazard takes priority| | |
 
@@ -419,13 +419,13 @@ Code will follow separation of concerns principles to improve maintainability.
 |T2|Press All Movement Keys|A + D simultaneously|No erratic movement|Pass|n/a|
 |T3|Hold Jump Continuously|Hold W|Only single jump allowed|Pass|n/a|
 |T4|Leave Game Idle|No interaction|No physics instability|Pass|n/a|
-|T5|Restart After Game Over|Press restart|Game resets correctly| | |
+|T5|Restart After Game Over|Press restart|Game resets correctly|Pass <img width="1914" height="993" alt="Screenshot 2026-03-02 185801" src="https://github.com/user-attachments/assets/66208b82-69bd-4629-8645-1c9ffc6e44e9" />|n/a|
 
 ### 7.4 Performance Testing
 | Test ID | Scenario | Expected Outcome | Pass/Fail | Further Actions |
 |---------|----------|------------------|-----------|-----------------|
-|T1|Multiple Coins on Screen|No frame drop| | |
-|T2|Rapid Input Changes|No stuttering| | |
-|T3|Level Transition|Scene loads smoothly| | |
-|T4|Long Play Session|No memory issues| | |
-|T5|Full Game Completion|No crashes| | |
+|T1|Multiple Coins on Screen|No frame drop|Pass|n/a|
+|T2|Rapid Input Changes|No stuttering|Pass|n/a|
+|T3|Level Transition|Scene loads smoothly|Pass|n/a|
+|T4|Long Play Session|No memory issues|Pass|n/a|
+|T5|Full Game Completion|No crashes|Pass|n/a|
