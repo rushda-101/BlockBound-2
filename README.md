@@ -383,11 +383,14 @@ Code will follow separation of concerns principles to improve maintainability.
 ### 7.1 Functional Testing
 | Test ID | Feature | Action | Expected Outcome | Type | Pass/Fail | Further Actions |
 |---------|---------|--------|------------------|------|-----------|-----------------|
-|T1|Move Left|Press A|Player moves left smoothly|Unit| | |
-|T2|Move Right|Press D|Player moves right smoothly|Unit| | |
-|T3|Jump|Press W|Player jumps and lands correctly|Unit| | |
-|T4|Gravity|Walk off platform|Player falls naturally|Unit| | |
-|T5|Platform Collision|Land on platform|Player stands without clipping|Unit| | |
+|T1|Move Left|Press A|Player moves left smoothly|Unit|Fail|Edit the built-in actions instead of creating new ones <img width="1530" height="405" alt="Screenshot 2026-02-28 164554" src="https://github.com/user-attachments/assets/df8c2d62-ea28-4a72-9473-663ab1c39e72" />|
+|**T1.1 (T1 Retest)**|Move Left|Press A|Player moves left smoothly|Unit|Pass <img width="1516" height="467" alt="Screenshot 2026-02-28 165037" src="https://github.com/user-attachments/assets/68d5eab8-3700-4f70-b2b5-78cdcc5a8fae" />|n/a|
+|T2|Move Right|Press D|Player moves right smoothly|Unit|Pass|n/a|
+|T3|Jump|Press W|Player jumps and lands correctly|Unit|Fail - Jump was not working when W was pressed|Add gravity concept into scene script - <img width="525" height="358" alt="image" src="https://github.com/user-attachments/assets/7f5881e8-e791-4730-ade9-e87e53c1a500" />|
+|**T3.1 (T3 Retest)**|Jump|Press W|Player jumps and lands correctly|Unit|Pass <img width="315" height="349" alt="image" src="https://github.com/user-attachments/assets/e83ce812-c03a-4574-9e82-5e84c8fcddb3" />|n/a|
+|T4|Gravity|Walk off platform|Player falls naturally|Unit|Pass <img width="1916" height="1005" alt="Screenshot 2026-03-01 203507" src="https://github.com/user-attachments/assets/b924ddec-a68b-4f58-a3f6-8715b3c4dd67" />|n/a|
+|T5|Platform Collision|Land on platform|Player stands without clipping|Unit|Fail Player was falling straight to the ground|Make each individual platform it's own property so it possesses it's own attributes <img width="209" height="217" alt="image" src="https://github.com/user-attachments/assets/91074243-7bad-44bc-ac62-b18ec9b05491" />|
+|**T5.1 (T5 Retest)**|Platform Collision|Land on platform|Player stands without clipping|Unit|Pass <img width="1915" height="1002" alt="Screenshot 2026-03-01 204657" src="https://github.com/user-attachments/assets/4d2a5bde-712d-4160-9c7d-3806643607c7" />|n/a|
 |T6|Coin Collection|Touch coin|Coin disappears & score increases|Unit| | |
 |T7|Hazard Collision|Touch hazard|Player loses one life|Unit| | |
 |T8|Life Reduction|Trigger hazard 3 times|Game Over activates|Unit| | |
@@ -401,7 +404,7 @@ Code will follow separation of concerns principles to improve maintainability.
 | Test ID | Scenario | Action | Expected Outcome | Pass/Fail | Further Actions |
 |---------|----------|--------|------------------|-----------|-----------------|
 |T1|Edge of Platform|Stand on platform edge|Player does not slide off unexpectedly| | |
-|T2|Rapid JumpPress|Spam jump key|No unintended double jump| | |
+|T2|Rapid JumpPress|Spam jump key|No unintended double jump|Pass|n/a|
 |T3|Jump at Platform Edge|Jump partially off edge|Player behaves consistently| | |
 |T4|Map Boundary Bottom|Fall below map|Life deducted & respawn| | |
 |T5|Coin at Platform Edge|Collect near edge|Coin registers correctly| | |
@@ -411,10 +414,10 @@ Code will follow separation of concerns principles to improve maintainability.
 ### 7.3 Negative Testing (Unexpected Input)
 | Test ID | Scenario | Action | Expected Outcome | Pass/Fail | Further Actions |
 |---------|----------|--------|------------------|-----------|-----------------|
-|T1|No Input|Player idle|Character remains stationary| | |
-|T2|Press All Movement Keys|A + D simultaneously|No erratic movement| | |
-|T3|Hold Jump Continuously|Hold W|Only single jump allowed| | |
-|T4|Leave Game Idle|No interaction|No physics instability| | |
+|T1|No Input|Player idle|Character remains stationary|Pass|n/a|
+|T2|Press All Movement Keys|A + D simultaneously|No erratic movement|Pass|n/a|
+|T3|Hold Jump Continuously|Hold W|Only single jump allowed|Pass|n/a|
+|T4|Leave Game Idle|No interaction|No physics instability|Pass|n/a|
 |T5|Restart After Game Over|Press restart|Game resets correctly| | |
 
 ### 7.4 Performance Testing
