@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ddegrtkpmjc62" path="res://Player.tscn" id="1_3hls8"]
 [ext_resource type="Texture2D" uid="uid://bgy7jyx6t8vww" path="res://assets/Level 1 Background.png" id="1_hbghi"]
+[ext_resource type="PackedScene" uid="uid://bbikmjfqsdjpf" path="res://assets/coin.tscn" id="3_hn12h"]
+[ext_resource type="Script" uid="uid://bm13fhkksuo3j" path="res://game_manager.gd" id="4_ihfcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(400, 400)
@@ -39,6 +41,10 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=807912476]
 
+[node name="Coin" parent="Platform2" unique_id=2079517059 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(224.99998, 94.99999)
+scale = Vector2(0.35, 0.35)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1740193516]
 position = Vector2(750, 360)
 shape = SubResource("RectangleShape2D_hbghi")
@@ -51,6 +57,10 @@ offset_bottom = 560.0
 color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=2096241365]
+
+[node name="Coin2" parent="Platform3" unique_id=1948238989 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(778, 96.99999)
+scale = Vector2(0.35, 0.35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=938510190]
 position = Vector2(1300, 360)
@@ -65,6 +75,10 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform5" type="StaticBody2D" parent="." unique_id=1030122213]
 
+[node name="Coin3" parent="Platform5" unique_id=79306050 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(1333, 98)
+scale = Vector2(0.35, 0.35)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=216391735]
 position = Vector2(1850, 360)
 shape = SubResource("RectangleShape2D_hbghi")
@@ -77,6 +91,10 @@ offset_bottom = 560.0
 color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform6" type="StaticBody2D" parent="." unique_id=1047698668]
+
+[node name="Coin4" parent="Platform6" unique_id=2046358134 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(1882, 97)
+scale = Vector2(0.35, 0.35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6" unique_id=1516234617]
 position = Vector2(2400, 360)
@@ -91,6 +109,10 @@ color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform7" type="StaticBody2D" parent="." unique_id=277974050]
 
+[node name="Coin5" parent="Platform7" unique_id=137531513 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(2450, 97)
+scale = Vector2(0.35, 0.35)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7" unique_id=596195284]
 position = Vector2(2950, 360)
 shape = SubResource("RectangleShape2D_hbghi")
@@ -103,6 +125,10 @@ offset_bottom = 560.0
 color = Color(0.74010885, 0.6298136, 0.4108266, 1)
 
 [node name="Platform8" type="StaticBody2D" parent="." unique_id=1336266124]
+
+[node name="Coin6" parent="Platform8" unique_id=883753971 groups=["Coins"] instance=ExtResource("3_hn12h")]
+position = Vector2(2980, 98)
+scale = Vector2(0.35, 0.35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8" unique_id=170275414]
 position = Vector2(3500, 360)
@@ -118,3 +144,6 @@ offset_top = 160.0
 offset_right = 4000.0
 offset_bottom = 560.0
 color = Color(0.74010885, 0.6298136, 0.4108266, 1)
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1605885942]
+script = ExtResource("4_ihfcg")

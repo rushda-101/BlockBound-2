@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bbikmjfqsdjpf"]
+
+[ext_resource type="Script" uid="uid://b3wfdefpig5a8" path="res://assets/coin.gd" id="1_klnt7"]
+[ext_resource type="Texture2D" uid="uid://tddxkmmb5r87" path="res://assets/Coin.png" id="1_y70ne"]
+[ext_resource type="Script" uid="uid://gpxiyausjiyg" path="res://assets/game_manager.gd" id="2_pivsm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pivsm"]
+radius = 96.76776
+
+[node name="Coin" type="Area2D" unique_id=2079517059]
+script = ExtResource("1_klnt7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2107580178]
+position = Vector2(270, 89)
+texture = ExtResource("1_y70ne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=481413571]
+position = Vector2(270, 92)
+shape = SubResource("CircleShape2D_pivsm")
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1669165936]
+script = ExtResource("2_pivsm")
