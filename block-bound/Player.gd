@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Movement speed
-var speed = 200
+@export var speed = 200
 var jump_velocity = -400
 var gravity = 900
 

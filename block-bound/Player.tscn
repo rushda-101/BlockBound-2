@@ -3,19 +3,15 @@
 [ext_resource type="Script" uid="uid://chevasby2r2mu" path="res://Player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://dtvewk5m3odd2" path="res://assets/BlockBound Player.png" id="2_kpjcp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(136.5, 219)
-
 [node name="Player" type="CharacterBody2D" unique_id=532816857]
 script = ExtResource("1_kpjcp")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1767954292]
 texture = ExtResource("2_kpjcp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573823923]
-position = Vector2(-0.25, 4.5)
-shape = SubResource("RectangleShape2D_kpjcp")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=359649452]
 limit_left = 0
 limit_right = 4000
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1747366455]
+polygon = PackedVector2Array(-49, 101, 50, 100, 23, -82, -19, -84)
