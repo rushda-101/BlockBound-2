@@ -1,4 +1,4 @@
-# BlockBound - Game Design Document
+# BlockBound - Game Design Document (Sprint 2)
 
 ## 1. Project Overview/Game Concept
 - Title: BlockBound
@@ -9,6 +9,8 @@
 - Target Audience: Casual and intermediate players who enjoy skill-based progression games.
 
 BlockBound is a three-level 2D platformer inspired by classic games such as Super Mario Bros. The player navigates through a digital world, collecting coins while avoiding hazards in order to reach the level exit. Each level increases in difficulty through tighter platform spacing, greater hazards and more complex traversal challenges.
+
+A Main Menu system was implemented to provide a structured entry point to the game. This allows players to start the game, view instructions, or exit the application before gameplay begins.
 
 The design prioritises mechanical clarity, progressive challenge and reward-driven engagement.
 
@@ -32,6 +34,10 @@ Core Gameplay Requirements:
   As a player, I want to progress through increasingly difficult levels so that the game remains engaging.
 * US7 – Level Completion: 
   As a player, I want a clear goal point so that I understand how to complete each level.
+* US8 – Main Menu Navigation:
+  As a player, I want a main menu so that I can start the game, view instructions, or exit easily.
+* US9 – Instructions Access:
+  As a player, I want to view instructions before playing so that I understand the controls and objectives.
 
 ### 2.2 System Requirements
 The system must:
@@ -43,6 +49,11 @@ The system must:
 * Reset player position upon life loss.
 * Transition between Level 1, Level 2 and Level 3.
 * Trigger Game Over state when lives reach zero.
+* Load a Main Menu scene at game start
+* Detect button input for Start, Instructions, and Quit
+* Display and hide an instructions panel
+* Transition from Main Menu to Level 1
+* Exit the application when Quit is selected
 
   Detect collision between:
   * Player and platforms
@@ -64,6 +75,8 @@ Should have:
 * Score UI
 * Level indicator
 * Game Over screen
+* Main Menu screen
+* Instructions panel
 
 Could have:
 * Sound effects
@@ -86,6 +99,8 @@ This prioritisation ensures the core gameplay loop is completed before polish fe
 |B9|Level 3|Advanced difficulty|Requires precise movement|Must|
 |B10|Level Transition|Scene change system|Completing level loads next scene|Must|
 |B11|UI Display|Score and lives|UI updates correctly during gameplay|Should|
+|B12|Main Menu|Entry screen with navigation options|Player can start game, view instructions, and quit|Should|
+|B13|Instructions Panel|Display gameplay instructions|Instructions panel opens and closes correctly|Should|
 
 Each backlog item is considered complete only when it satisfies functional testing and playtesting evaluation.
 
@@ -209,16 +224,28 @@ Scripts:
 * Coin.gd
 * Hazard.gd
 * GameManager.gd
+* MainMenu.gd
 
 Node Types:
 * CharacterBody2D (Player)
 * Area2D (Coins & Hazards)
 * TileMap (Level Layout)
 * CanvasLayer (UI)
+* Control (Main Menu UI)
+* Panel (Instructions display)
+* TextureRect (Background image)
+* AnimationPlayer (Fade transitions)
+
+UI Components Added:
+* Main Menu (Control node)
+* Buttons (Start, Instructions, Quit)
+* Instructions Panel (Panel node)
+* Background (TextureRect)
+* Fade system (ColorRect + AnimationPlayer)
 
 This modular architecture follows separation-of-concerns principles, improving maintainability and scalability.
 
-### 4.7 State Diagram
+### 4.7 State Diagram £
 The game follows a finite state model:
 <img width="361" height="551" alt="BlockBound State Diagram drawio" src="https://github.com/user-attachments/assets/45a103eb-e46c-4efd-8b83-909786528a2b" />
 
@@ -257,58 +284,56 @@ Each week included:
 
 This structured approach ensured steady progress while allowing flexibility for technical challenges.
 
-### 5.2 Coding Development Timeline (3-Week Sprint Plan)
-#### Week 1 – Core Mechanics & Foundation
-Sprint Goal: Establish functional player movement and playable Level 1 prototype.
+### 5.2 Coding Development Timeline (Sprint 2 – Main Menu System)
+#### Week 1 – Core Menu Structure
+Sprint Goal: Establish a functional Main Menu scene with basic navigation.
 
 Planned Tasks:
-* Learn core Godot systems and scene structure
-* Implement player movement (WASD)
-* Implement jump and gravity system
-* Implement collision with platforms
-* Build basic Level 1 TileMap layout
+* Create Main Menu scene using Control node
+* Implement layout using VBoxContainer
+* Add buttons (Start, Instructions, Quit)
+* Connect button signals
+* Implement Start Game functionality (load Level 1)
+* Implement Quit functionality
 
 Focus Areas:
-* Analysis: Understanding Godot physics system
-* Design: Player controller architecture
-* Coding: Movement and collision scripts
-* Testing: Unit testing movement stability
+* Analysis: Understanding Godot UI system (Control nodes)
+* Design: Menu layout and structure
+* Coding: Scene setup and button signal connections
+* Testing: Verify button functionality and scene transitions
 
-#### Week 2 – Core Gameplay Systems
-Sprint Goal: Implement interactive gameplay systems and expand level design.
+#### Week 2 – Instructions System & UI Behaviour
+Sprint Goal: Implement instructions panel and improve user interaction.
 
 Planned Tasks:
-* Implement coin collection system
-* Implement score tracking
-* Implement hazard collision detection
-* Implement lives system
-* Implement respawn system
-* Design and construct Level 2 and Level 3
+* Create Instructions Panel (Panel node)
+* Add instructional text (controls and objectives)
+* Implement open/close functionality for Instructions
+* Ensure panel visibility toggling works correctly
+* Resolve UI layering issues (panel appearing above background)
 
 Focus Areas:
-* Design: Risk-reward coin placement
-* Coding: Area2D detection & signal system
-* Testing: Hazard and respawn reliability
-* Difficulty balancing
+* Design: Clear and readable instruction layout
+* Coding: UI visibility logic and node referencing
+* Testing: Validate panel display and interaction reliability
 
-#### Week 3 – Integration, Polish & Delivery
-Sprint Goal: Complete full gameplay loop and finalise project.
+#### Week 3 – Visual Polish & User Experience
+Sprint Goal: Enhance visual quality and overall user experience.
 
 Planned Tasks:
-* Implement level transition system
-* Implement Game Over state
-* Add UI elements (score, lives display)
-* Conduct full system testing
-* Fix identified bugs
-* Finalise documentation
+* Add background image using TextureRect
+* Implement fade-in transition using ColorRect and AnimationPlayer
+* Refine layout positioning and alignment (centering UI elements)
+* Ensure consistent visual hierarchy (background, buttons, panels)
+* Conduct full testing of menu interactions
 
 Focus Areas:
-* Integration testing
-* Performance validation
-* Difficulty tuning
-* Final delivery preparation
+* Design: Visual presentation and layout balance
+* Coding: Animation implementation
+* Testing: Integration testing of full menu system
+* Usability: Ensuring intuitive navigation and responsiveness
 
-### 5.3 Burndown Chart
+### 5.3 Burndown Chart £
 A burndown chart was maintained throughout development to track remaining backlog items against time.
 
 ### 5.4 Backlog Reviews
@@ -326,7 +351,7 @@ Backlog reviews ensured that:
 This iterative evaluation supported controlled project progression and reduced implementation risk.
 
 ### 5.5 Development Review Meetings
-Development review meetings were conducted weekly and documented to provide reflective evidence of progress. Each meeting addressed:
+Development review meetings were conducted weekly during Sprint 2 to track progress on the Main Menu implementation. Each review evaluated completed work, upcoming tasks, encountered issues, and resolutions. Each meeting addressed:
 1. What was completed since the last review?
 2. What will be completed in the next sprint?
 3. What problems or barriers were encountered?
@@ -335,26 +360,76 @@ Development review meetings were conducted weekly and documented to provide refl
 
 #### Week 1 Review
 Completed:
-* Player movement and jump system
-* Gravity and collision detection
-* Basic Level 1 layout
+* Created Main Menu scene using Control node
+* Implemented layout using VBoxContainer
+* Added Start, Instructions and Quit buttons
+* Connected button signals to corresponding functions
+* Implemented scene transition to Level 1
+* Implemented Quit functionality
 
 Planned Next:
-* Coin and hazard systems
-* Lives implementation
+* Instructions panel implementation
+* UI interaction improvements
 
 Problems Encountered:
-
-(Unintended double jumping
-Jump arc felt unnatural)
+* Initial difficulty understanding Godot UI node hierarchy
+* Button signals not triggering due to incorrect connections
 
 Resolutions:
-
-(Implemented grounded check using is_on_floor()
-Adjusted gravity and jump velocity constants)
+* Reviewed Control node structure and layout system
+* Correctly connected signals using Node tab
+* Verified functionality through testing
 
 Backlog Impact:
-* No scope changes
+* No changes required
+
+#### Week 2 Review
+Completed:
+* Implemented Instructions Panel
+* Added gameplay instructions (controls and objectives)
+* Implemented open/close functionality for Instructions
+* Ensured panel visibility toggling works correctly
+
+Planned Next:
+* Visual improvements (background and transitions)
+* UI positioning and alignment
+
+Problems Encountered:
+* Instructions panel not appearing due to incorrect node path
+* UI elements overlapping or appearing behind background
+
+Resolutions:
+* Corrected node paths using proper hierarchy references (get_node)
+* Adjusted node order and layering to ensure visibility
+* Verified panel display through testing
+
+Backlog Impact:
+* Minor UI refinement task added
+
+#### Week 3 Review
+Completed:
+* Added background image using TextureRect
+* Implemented fade-in transition using ColorRect and AnimationPlayer
+* Improved UI layout and centering of elements
+* Ensured consistent visual hierarchy
+* Conducted full system testing of Main Menu
+
+Planned Next:
+* Final documentation updates
+* Optional UI enhancements (if required)
+
+Problems Encountered:
+* Fade animation initially not visible due to incorrect alpha values
+* UI elements not properly centered on screen
+
+Resolutions:
+* Adjusted RGBA alpha values for fade effect
+* Used layout presets and containers to correctly align UI elements
+* Retested transitions and visual behaviour
+
+Backlog Status:
+* All Sprint 2 tasks complete
+* No outstanding issues
 
 ### 5.6 Risk Management
 Potential risks identified at project initiation:
