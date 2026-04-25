@@ -86,21 +86,22 @@ Could have:
 This prioritisation ensures the core gameplay loop is completed before polish features.
 
 ## 3. Scrum Backlog
-| ID | Feature | Description | Acceptance Criteria | Priority |
-|----|---------|-------------|---------------------|----------|
-|B1|Player Controller|Implement movement & jumping|Player moves smoothly and responds instantly to input|Must|
-|B2|Gravity System|Apply gravity physics|Player falls naturally and lands correctly|Must|
-|B3|Platform Collision|Solid ground detection|Player cannot pass through platforms|Must|
-|B4|Coin System|Collectible objects|Coin disappears and score increases|Must|
-|B5|Hazard System|Damage zones|Player loses one life on contact|Must|
-|B6|Lives System|Life tracking|Lives decrement correctly and trigger Game Over at zero|Must|
-|B7|Level 1|Introductory stage|Playable from start to finish|Must|
-|B8|Level 2|Intermediate difficulty|Noticeably harder than Level 1|Must|
-|B9|Level 3|Advanced difficulty|Requires precise movement|Must|
-|B10|Level Transition|Scene change system|Completing level loads next scene|Must|
-|B11|UI Display|Score and lives|UI updates correctly during gameplay|Should|
-|B12|Main Menu|Entry screen with navigation options|Player can start game, view instructions, and quit|Should|
-|B13|Instructions Panel|Display gameplay instructions|Instructions panel opens and closes correctly|Should|
+| ID | Feature | Description | Acceptance Criteria | Priority | Story Points | Sprint | Status |
+|----|---------|-------------|---------------------|----------|--------------|--------|--------|
+|B1|Player Controller|Implement movement & jumping|Player moves smoothly and responds instantly to input|Must|5|Sprint 1|Done|
+|B2|Gravity System|Apply gravity physics|Player falls naturally and lands correctly|Must|3|Sprint 1|Done|
+|B3|Platform Collision|Solid ground detection|Player cannot pass through platforms|Must|5|Sprint 1|Done|
+|B4|Coin System|Collectible objects|Coin disappears and score increases|Must|5|Sprint 1|Done|
+|B5|Hazard System|Damage zones|Player loses one life on contact|Must|3|Sprint 1|Done|
+|B6|Lives System|Life tracking|Lives decrement correctly and trigger Game Over at zero|Must|5|Sprint 1|Done|
+|B7|Level 1|Introductory stage|Playable from start to finish|Must|3|Sprint 1|Done|
+|B8|Level 2|Intermediate difficulty|Noticeably harder than Level 1|Must|5|Sprint 1|Done|
+|B9|Level 3|Advanced difficulty|Requires precise movement|Must|5|Sprint 1|Done|
+|B10|Level Transition|Scene change system|Completing level loads next scene|Must|3|Sprint 1|Done|
+|B11|UI Display|Score and lives|UI updates correctly during gameplay|Should|3|Sprint 1|Done|
+|B12|Main Menu|Entry screen with navigation options|Player can start game, view instructions, and quit|Should|5|Sprint 2|Done|
+|B13|Instructions Panel|Display gameplay instructions|Instructions panel opens and closes correctly|Should|3|Sprint 2|Done|
+|B14|Fade Transition|Visual polish|Smooth fade-in on load|Could|2|Sprint 2|Done|
 
 Each backlog item is considered complete only when it satisfies functional testing and playtesting evaluation.
 
@@ -202,6 +203,33 @@ No hidden mechanics are introduced across levels. All hazards behave consistentl
 ### 4.6 System Architecture
 BlockBound is developed using Godot due to research into engine suitability for 2D platform development.
 
+Technical Implementation Details:
+The project is implemented using Godot Engine, which provides a node-based architecture. Each scene is composed of reusable nodes that encapsulate behaviour and logic.
+
+GDScript Implementation:
+The game uses GDScript, a Python-like language optimised for rapid development within Godot.
+
+Key implementation examples include:
+
+Player Movement System
+* Implemented using CharacterBody2D
+* Movement handled via _physics_process(delta)
+* Uses move_and_slide() for collision-aware motion
+
+Signal-Based Architecture
+* Coins emit a collected signal
+* GameManager listens and updates score
+* Promotes loose coupling between systems
+
+Scene Management
+* Scene transitions handled using: get_tree().change_scene_to_file()
+* Ensures clean switching between levels and menu
+
+UI System
+* Built using Control nodes
+* Uses visibility toggling for Instructions panel
+* Layered using Canvas/UI hierarchy
+
 Godot provides:
 * Built-in physics engine
 * Native collision detection
@@ -210,6 +238,15 @@ Godot provides:
 * Lightweight project structure
 
 Research comparing custom-coded physics engines versus built-in physics systems suggests that using established engines reduces implementation risk and increases stability, particularly within limited development timeframes.
+
+Planned Flowcharts (Design Evidence):
+
+To support system design, the following flowcharts will be included:
+* Player Movement Logic Flowchart
+* Game State Flowchart (Menu → Gameplay → Game Over / Win)
+* UI Interaction Flowchart (Button Input → Action)
+
+These diagrams visually represent logic flow and validate system structure.
 
 #### Architectural Design
 Scenes:
@@ -266,6 +303,31 @@ Mitigation strategies:
 * Use version control for rollback safety
 
 This proactive risk identification demonstrates structured development planning.
+
+#### Technical Challenges and Solutions
+Several technical challenges were encountered during development:
+
+1. Input Handling & Movement Precision
+Issue: Unintended double jumping and inconsistent movement
+Solution: Implemented is_on_floor() checks and refined velocity handling
+
+2. UI System Complexity
+Issue: Buttons and panels not responding due to incorrect node paths
+Solution: Used structured node hierarchy and verified signal connections
+
+3. Scene Transitions
+Issue: Incorrect scene loading (e.g., Level 3 returning to Level 2)
+Solution: Explicit scene referencing using correct file paths
+
+4. Visual Feedback (Red Flash & Fade)
+Issue: Effects not displaying due to incorrect node references or alpha values
+Solution: Used modulate property and RGBA alpha adjustments
+
+5. Node Referencing Errors
+Issue: “null instance” errors when accessing nodes
+Solution: Implemented get_node_or_null() for safer referencing
+
+These challenges demonstrate iterative debugging and practical problem-solving within a game development environment.
 
 ## 5. Project Management
 
@@ -449,13 +511,38 @@ Mitigation strategies included:
 - Engine: Godot
 - Language: GDScript
 - Version Control: Git
-- Development Method: Iterative Agile approach
-- Design Approach: Modular scene architecture
-- Programming Paradigm: Object-Oriented design
+
+Godot was selected due to:
+* Built-in 2D physics engine
+* Node-based architecture (modular design)
+* Integrated scripting environment
+* Strong UI system for menus and overlays
+
+Programming Approach:
+* Object-Oriented design (separate scripts per entity)
+* Event-driven programming using signals
+* Modular scene architecture
+
+Development Techniques:
+* Iterative testing after each feature
+* Debugging using print statements and error logs
+* Use of reusable nodes and scenes
 
 Code will follow separation of concerns principles to improve maintainability.
 
 ## 7. Testing Plan
+
+#### Testing Strategy and Traceability
+Testing was directly linked to user stories and acceptance criteria to ensure all functional requirements were validated.
+
+For example:
+* US1 (Movement) → Tested in T1 & T2
+* US3 (Coin Collection) → Tested in T6
+* US5 (Lives System) → Tested in T8
+* US8 (Main Menu Navigation) → Tested in T15
+* US9 (Instructions Access) → Tested in T17
+
+This ensures traceability between requirements and testing, demonstrating that all user needs were fully validated.
 
 ### 7.1 Functional Testing
 | Test ID | Feature | Action | Expected Outcome | Type | Pass/Fail | Further Actions |
