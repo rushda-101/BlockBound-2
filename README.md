@@ -245,7 +245,7 @@ UI Components Added:
 
 This modular architecture follows separation-of-concerns principles, improving maintainability and scalability.
 
-### 4.7 State Diagram £
+### 4.7 State Diagram
 The game follows a finite state model:
 <img width="361" height="551" alt="BlockBound State Diagram drawio" src="https://github.com/user-attachments/assets/45a103eb-e46c-4efd-8b83-909786528a2b" />
 
@@ -333,7 +333,7 @@ Focus Areas:
 * Testing: Integration testing of full menu system
 * Usability: Ensuring intuitive navigation and responsiveness
 
-### 5.3 Burndown Chart £
+### 5.3 Burndown Chart (Sprint 2)
 A burndown chart was maintained throughout development to track remaining backlog items against time.
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/19f625a9-7009-4b42-837e-7044bdd2b6d7" />
@@ -479,6 +479,9 @@ Code will follow separation of concerns principles to improve maintainability.
 |T12|UI Update|Collect coin|Score updates instantly|Integration|Pass <img width="878" height="497" alt="image" src="https://github.com/user-attachments/assets/4d9ee020-a7a2-42f4-bc5e-154e787913b9" />|n/a|
 |T13|Lives UI|Lose life|Lives counter decreases correctly|Integration|Pass <img width="500" height="448" alt="image" src="https://github.com/user-attachments/assets/3c3e6e1a-ad00-41a2-a2e2-e424b074e1dd" />|n/a|
 |T14|Red Flash|Lose life|Player sprite flashed red when life is lost|Integration|Pass|n/a|
+|T15|Main Menu Navigation|Click Start, Instructions, Quit|Correct scene loads, instructions display and game exits|Integration|Pass <img width="952" height="449" alt="image" src="https://github.com/user-attachments/assets/5f070ca8-0091-442b-a9a7-a04a5943bd6b" />|n/a|
+|T16|Fade in transition|Open game|Fade in transition is displayed upon load for 1 second|Integration|Pass|n/a|
+|T17|Instructions Panel|Open and close instructions|Panel appears and disappears correctly|Integration|Pass <img width="950" height="452" alt="image" src="https://github.com/user-attachments/assets/072a9852-378a-4575-a4ab-5b4838850c6e" />|n/a|
 
 ### 7.2 Boundary and Edge Case Testing
 | Test ID | Scenario | Action | Expected Outcome | Pass/Fail | Further Actions |
