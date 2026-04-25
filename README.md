@@ -336,6 +336,8 @@ Focus Areas:
 ### 5.3 Burndown Chart £
 A burndown chart was maintained throughout development to track remaining backlog items against time.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/19f625a9-7009-4b42-837e-7044bdd2b6d7" />
+
 ### 5.4 Backlog Reviews
 At the end of each sprint, a backlog review session was conducted. This involved:
 * Marking completed items as done
