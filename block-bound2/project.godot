@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="BlockBound"
-run/main_scene="uid://dm14lokn8f3sp"
+config/name="BlockBound2"
+run/main_scene="uid://5w5fhq81mbqt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
